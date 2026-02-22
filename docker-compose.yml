@@ -10,11 +10,18 @@ services:
     # ホストの現在のディレクトリをコンテナの /work にマウント
     volumes:
       - ./work:/work
+      # Docker in Docker のためのデータディレクトリ（名前付きボリューム）
+      - docker-data:/var/lib/docker
     # コンテナを起動し続ける（自動で終了しないようにする）
     tty: true
     stdin_open: true
+    # Docker in Docker を有効にするため privileged モードを使用
+    privileged: true
     # セキュリティ設定（gdbなどのデバッグツールを使用可能にする）
     security_opt:
       - seccomp:unconfined
     cap_add:
       - SYS_PTRACE
+
+volumes:
+  docker-data:
