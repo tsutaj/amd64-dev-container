@@ -1,0 +1,6 @@
+# Docker関連
+.docker/
+
+# 作業ディレクトリ内のバイナリや一時ファイル
+work/*
+!work/.gitkeep

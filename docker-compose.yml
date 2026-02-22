@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  x86_64-env:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: amd64-dev-container
+    platform: linux/amd64
+    # ホストの現在のディレクトリをコンテナの /work にマウント
+    volumes:
+      - ./work:/work
+    # コンテナを起動し続ける（自動で終了しないようにする）
+    tty: true
+    stdin_open: true
+    # セキュリティ設定（gdbなどのデバッグツールを使用可能にする）
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
