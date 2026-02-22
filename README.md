@@ -2,6 +2,8 @@
 
 ARM Mac（Apple Silicon）でx86_64バイナリを実行するためのDocker環境です。
 
+M5 Mac + Colima で動作確認しました。利用は自己責任でお願いします。
+
 ## ディレクトリ構成
 
 ```
